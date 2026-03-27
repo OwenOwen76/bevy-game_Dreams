@@ -34,7 +34,7 @@ the top and right of small tree doesn't generate and is cut off
 tree in water, tree too close (on top of each other), in very small patches
 
 ### Player 
-# Player jump is animation only
+#### Player jump is animation only
 when the player jump w/ space bar it's a animation that plays but nothing really happens
 
 #### Player z-sorting logic is not working
