@@ -1,4 +1,15 @@
+#### Dreams
+
+This is a 2D Singleplayer Top-Down Procedural Survival RPG, where the player explores an open, procedurally generated world, engaging in real-time combat (in the style of Zelda), gathering resources, completing quests, and interacting with NPCs. Each in-game “day” lasts approximately 30 minutes and ends at Midnight, where the entire world resets with a new procedural seed.
+
+The world is a fractured mind attempting to reconstruct reality. Each reset is the brain trying to “solve” itself. The player, unknowingly acting as a disruptive force (“the Virus”), causes this process to fail every cycle.
+
+Player progression persists across loops (gear, stats, items), while the world, NPC placements, and terrain regenerate. Key structures and story elements are guaranteed to reappear in different forms each cycle.
+
+Each cycle encourages exploration, resource gathering, quest completion, and character strengthening under the belief that the player is progressing toward saving the world.
+
 ### --- TODO ---
+Below is my ToDo list for this project
 
 ## --- MAP ---
 # Map bitmasking sometimes fails
