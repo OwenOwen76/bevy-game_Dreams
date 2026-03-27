@@ -43,7 +43,7 @@ pub fn spawn_chunk(
 
             let (is_grass, is_water) = get_tile_type(x, y, perlin);
 
-            //WATER
+            // WATER
             if is_water {
                 let mask = calculate_mask_water(x, y, perlin);
                 let has_grass_neighbor = check_grass_neighbor(x, y, perlin);
@@ -62,7 +62,7 @@ pub fn spawn_chunk(
                 }
             }
 
-            //GRASS
+            // GRASS
             if is_grass {
                 let mask = calculate_mask_grass(x, y, perlin);
                 if let Some(s) = match_mask_to_suffix(mask) {
@@ -91,15 +91,16 @@ pub fn spawn_chunk(
 
                 let local_x = x - start_x;
                 let local_y = y - start_y;
-                let near_edge = local_x < 2
-                    || local_x > CHUNK_SIZE - 6
+
+                let near_edge = local_x < 3
+                    || local_x > CHUNK_SIZE - 3
                     || local_y < 1
-                    || local_y > CHUNK_SIZE - 7;
+                    || local_y > CHUNK_SIZE - 6;
 
                 if !near_edge {
                     // 1. DENSE FOREST
                     if val > 0.65 {
-                        if x % 4 == 0 && y % 4 == 0 {
+                        if x % 6 == 0 && y % 6 == 0 {
                             let tree_type = if val > 0.80 { "oak_tree" } else { "pine_tree" };
                             spawn_bundle(
                                 commands,
@@ -232,7 +233,7 @@ pub fn spawn_bundle(
             let prefix = if bundle_type == "oak_tree" {
                 "oak_g"
             } else {
-                "oak_b"
+                "oak_d"
             };
             for row in 0..6 {
                 for col in 0..5 {
@@ -255,14 +256,14 @@ pub fn spawn_bundle(
             } else {
                 "pine_b"
             };
-            for row in 0..4 {
+            for row in 0..5 {
                 for col in 0..3 {
                     let name = format!("{}_{}_{}", prefix, row, col);
                     spawn_sprite_decor(
                         commands,
                         &name,
                         base_x + col - 1,
-                        base_y + (3 - row),
+                        base_y + (4 - row),
                         3.0,
                         layout,
                         tex.clone(),
@@ -304,10 +305,10 @@ pub fn spawn_bundle(
                 "small_bush_dirt" => ("bush_sm_d", 2.2),
                 "mushrooms" => ("mush_g", 2.1),
                 "mushrooms_dirt" => ("mush_d", 2.1),
-                "weeds" => ("weed_1", 2.1),
-                "reeds" => ("reed_1", 2.1),
-                "rock" => ("rock_g", 2.4),
-                "boulder" => ("boulder_g", 2.6),
+                "weeds" => ("weed_g", 2.1),
+                "reeds" => ("reed_g", 2.1),
+                "rock" => ("rock_g1", 2.4),
+                "boulder" => ("boulder_g1", 2.6),
                 _ => ("bush_lg_g", 2.0),
             };
 
