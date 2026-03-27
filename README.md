@@ -1,4 +1,4 @@
-#### Dreams
+# Dreams
 
 This is a 2D Singleplayer Top-Down Procedural Survival RPG, where the player explores an open, procedurally generated world, engaging in real-time combat (in the style of Zelda), gathering resources, completing quests, and interacting with NPCs. Each in-game “day” lasts approximately 30 minutes and ends at Midnight, where the entire world resets with a new procedural seed.
 
@@ -8,11 +8,11 @@ Player progression persists across loops (gear, stats, items), while the world, 
 
 Each cycle encourages exploration, resource gathering, quest completion, and character strengthening under the belief that the player is progressing toward saving the world.
 
-### --- TODO ---
+## TODO 
 Below is my ToDo list for this project
 
-## --- MAP ---
-# Map bitmasking sometimes fails
+### MAP 
+#### Map bitmasking sometimes fails
 (grass example)
 tr
 mc tr
@@ -20,26 +20,26 @@ mc tc tr
 mc mc mc tr
 the tc above should have been a mc
 
-# Map water-grass connection
+#### Map water-grass connection
 right now when water is beside grass both generates the border, grass should instead generate grass_mc and connect with water_grass.
 
-# Map doesn't despwn entities
+#### Map doesn't despwn entities
 map doesn't despawn entities that out of render distance
 
-# Tree sprite getting cut off
+#### Tree sprite getting cut off
 the top of the big trees doesn't generate and is cut off
 the top and right of small tree doesn't generate and is cut off
 
-# Tree placement errors
+#### Tree placement errors
 tree in water, tree too close (on top of each other), in very small patches
 
-## --- Player ---
+### Player 
 # Player jump is animation only
 when the player jump w/ space bar it's a animation that plays but nothing really happens
 
-# Player z-sorting logic is not working
+#### Player z-sorting logic is not working
 the z-sorting for the player is not work, most likely the map decors are loading on the wrong z-layer
 
-## --- Other ---
-# npc & pathfinding
+### Other 
+#### npc & pathfinding
 both folders are place holders, both empty
