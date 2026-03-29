@@ -14,10 +14,15 @@ Below is my ToDo list for this project, there's still many other things that cou
 ### MAP 
 #### Map bitmasking sometimes fails
 (grass example)
+
 tr
+
 mc tr
+
 mc tc tr
+
 mc mc mc tr
+
 the tc above should have been a mc
 
 #### Map water-grass connection
