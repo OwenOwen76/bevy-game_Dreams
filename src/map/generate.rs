@@ -99,7 +99,7 @@ pub fn spawn_chunk(
 
                 if !near_edge {
                     // 1. DENSE FOREST
-                    if val > 0.65 {
+                    if val > 0.40 {
                         if x % 6 == 0 && y % 6 == 0 {
                             let tree_type = if val > 0.80 { "oak_tree" } else { "pine_tree" };
                             spawn_bundle(
@@ -113,19 +113,22 @@ pub fn spawn_chunk(
                         }
                     }
                     // 2. LARGE OBSTACLES
-                    else if val > 0.50 {
+                    else if val > 0.60 {
                         if x % 5 == 1 && y % 5 == 1 {
                             let obstacle = if val > 0.58 { "boulder" } else { "hollow_log" };
                             spawn_bundle(commands, obstacle, x, y, decor_layout, decor_tex.clone());
                         }
                     }
                     // 3. Small Decors
-                    else if val > 0.35 {
+                    else if val > 0.20 {
                         if x % 3 == 0 && y % 3 == 0 {
-                            let clutter = match (x + y) % 3 {
+                            let clutter = match (x + y) % 6 {
                                 0 => "mushrooms",
                                 1 => "large_bush",
-                                _ => "weeds",
+                                2 => "weeds",
+                                3 => "small_bush",
+                                4 => "rock",
+                                _ => "boulder",
                             };
                             spawn_bundle(commands, clutter, x, y, decor_layout, decor_tex.clone());
                         }
@@ -209,7 +212,7 @@ fn spawn_sprite(
             Sprite {
                 image: tex,
                 texture_atlas: Some(TextureAtlas {
-                    layout: layout.clone(),
+                    layout: (*layout).clone(),
                     index: index as usize,
                 }),
                 ..default()
@@ -228,7 +231,6 @@ pub fn spawn_bundle(
     tex: Handle<Image>,
 ) {
     match bundle_type {
-        // --- TREES ---
         "oak_tree" | "oak_tree_bare" => {
             let prefix = if bundle_type == "oak_tree" {
                 "oak_g"
@@ -263,7 +265,7 @@ pub fn spawn_bundle(
                         commands,
                         &name,
                         base_x + col - 1,
-                        base_y + (4 - row),
+                        base_y - row + 4,
                         3.0,
                         layout,
                         tex.clone(),
@@ -271,17 +273,10 @@ pub fn spawn_bundle(
                 }
             }
         }
-
-        // --- LOGS ---
-        "hollow_log" | "hollow_log_dirt" => {
-            let prefix = if bundle_type == "hollow_log" {
-                "log_g"
-            } else {
-                "log_d"
-            };
+        "hollow_log" => {
             for row in 0..2 {
                 for col in 0..3 {
-                    let name = format!("{}_{}_{}", prefix, row, col);
+                    let name = format!("log_g_{}_{}", row, col);
                     spawn_sprite_decor(
                         commands,
                         &name,
@@ -294,21 +289,15 @@ pub fn spawn_bundle(
                 }
             }
         }
-
-        // --- STANDARD DECOR ---
-        "large_bush" | "large_bush_dirt" | "small_bush" | "small_bush_dirt" | "mushrooms"
-        | "mushrooms_dirt" | "weeds" | "reeds" | "rock" | "boulder" => {
-            let (prefix, z_order) = match bundle_type {
-                "large_bush" => ("bush_lg_g", 2.5),
-                "large_bush_dirt" => ("bush_lg_d", 2.5),
-                "small_bush" => ("bush_sm_g", 2.2),
-                "small_bush_dirt" => ("bush_sm_d", 2.2),
-                "mushrooms" => ("mush_g", 2.1),
-                "mushrooms_dirt" => ("mush_d", 2.1),
+        "mushrooms" | "large_bush" | "weeds" | "reeds" | "rock" | "boulder" | "small_bush" => {
+            let (prefix, z) = match bundle_type {
+                "mushrooms" => ("mush_g1", 2.1),
+                "large_bush" => ("bush_lg_g", 2.2),
                 "weeds" => ("weed_g", 2.1),
                 "reeds" => ("reed_g", 2.1),
                 "rock" => ("rock_g1", 2.4),
                 "boulder" => ("boulder_g1", 2.6),
+                "small_bush" => ("bush_sm_g", 2.1),
                 _ => ("bush_lg_g", 2.0),
             };
 
@@ -320,7 +309,7 @@ pub fn spawn_bundle(
                         &name,
                         base_x + col,
                         base_y - (1 - row),
-                        z_order,
+                        z,
                         layout,
                         tex.clone(),
                     );
@@ -349,7 +338,7 @@ fn spawn_sprite_decor(
             Sprite {
                 image: tex,
                 texture_atlas: Some(TextureAtlas {
-                    layout: layout.clone(),
+                    layout: (*layout).clone(),
                     index,
                 }),
                 ..default()
