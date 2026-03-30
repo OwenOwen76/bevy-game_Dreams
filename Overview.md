@@ -1,5 +1,4 @@
-# Dreams: The Video Game Concept Summary
-
+# Dreams: An Overview
 By: ME! a solo dev
 
 ### 1. Core Identity & Gameplay Loop
