@@ -1,7 +1,7 @@
 use crate::characters::input::Player;
 use crate::map::generate::*;
+use crate::map::noise::*;
 use bevy::{platform::collections::HashSet, prelude::*};
-use noise::Perlin;
 
 #[derive(Resource, Default)]
 pub struct ChunkManager {
@@ -11,8 +11,8 @@ pub struct ChunkManager {
 #[derive(Resource)]
 pub struct MapSeed(pub u32);
 
-pub const CHUNK_SIZE: i32 = 64;
-pub const RENDER_DISTANCE: i32 = 2;
+pub const CHUNK_SIZE: i32 = 32;
+pub const RENDER_DISTANCE: i32 = 3;
 
 pub fn update_chunks(
     mut commands: Commands,
