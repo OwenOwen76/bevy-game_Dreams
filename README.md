@@ -8,8 +8,7 @@ Player progression persists across loops (gear, stats, items), while the world, 
 
 Each cycle encourages exploration, resource gathering, quest completion, and character strengthening under the belief that the player is progressing toward saving the world.
 
-## TODO 
-Below is my ToDo list for this project, there's still many other things that could be improved toward a better experience overall but these are my top priorities.
+## TODO/Issues
 
 ### MAP 
 #### Map bitmasking sometimes fails
