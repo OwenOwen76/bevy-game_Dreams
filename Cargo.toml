@@ -13,6 +13,9 @@ noise = "0.9.0"
 rand = "0.10.0"
 bevy_procedural_tilemaps = "0.3.0"
 
+[target.wasm32-unknown-unknown.dependencies]
+getrandom = { version = "0.3", features = ["wasm_js"] }
+
 [profile.dev]
 opt-level = 1
 
