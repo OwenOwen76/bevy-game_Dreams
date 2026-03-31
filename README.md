@@ -1,6 +1,6 @@
 # Dreams
 
-This is a 2D Singleplayer Top-Down Procedural Survival RPG, where the player explores an open, procedurally generated world, engaging in real-time combat (in the style of Zelda), gathering resources, completing quests, and interacting with NPCs. Each in-game “day” lasts approximately 30 minutes and ends at Midnight, where the entire world resets with a new procedural seed.
+This is a 2D Singleplayer Top-Down Procedural Survival RPG, where the player explores an open, procedurally generated world, engaging in real-time combat (in the style of Zelda), gathering resources, completing quests, and interacting with NPCs. Each in-game day lasts approximately 30 minutes and ends at Midnight, where the entire world resets with a new procedural seed.
 
 Overview.md has more info on this
 
@@ -47,3 +47,7 @@ the z-sorting for the player is not work, most likely the map decors are loading
 ### Other 
 #### NPC & Pathfinding
 both folders are place holders, both empty
+
+## Credits
+
+TODO
