@@ -144,6 +144,7 @@ All player progress is deleted as part of the resolution.
   * Player stats, inventory, and progression persist across cycles
   * World resets each loop with deterministic structural elements for narrative continuity
 
+* TO BE UPDATED
 ---
 
 ### 7. Current Progress
@@ -153,4 +154,5 @@ All player progress is deleted as part of the resolution.
 * combat and collision is being worked on right now
 * NPC dialog system has a 1-NPC MVP version that read limited keyword and creates dynamic response
 * there a fully functional pause menu and loading screen because why not
-
+* temp web demo is being worked on, slight dependency issues with some crate(s)
+* TO BE UPDATED
