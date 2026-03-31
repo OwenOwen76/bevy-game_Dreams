@@ -37,6 +37,9 @@ the bottom two boulder sprites and the top two large bush sprite are being spawn
 #### Tree placement errors
 tree in water, tree too close (on top of each other), in very small patches
 
+#### Decors placement via blue noise
+right now the decors of the map is spawning in rigid grids, needs to fixed with more detailed placement via blue noise
+
 ### Player 
 #### Player jump is animation only
 when the player jump w/ space bar it's a animation that plays but nothing really happens
@@ -46,7 +49,7 @@ the z-sorting for the player is not work, most likely the map decors are loading
 
 ### Other 
 #### NPC & Pathfinding
-both folders are place holders, both empty
+both folders are place holders, empty at the moment
 
 ## Credits
 
