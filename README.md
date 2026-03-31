@@ -2,7 +2,7 @@
 
 This is a 2D Singleplayer Top-Down Procedural Survival RPG, where the player explores an open, procedurally generated world, engaging in real-time combat (in the style of Zelda), gathering resources, completing quests, and interacting with NPCs. Each in-game day lasts approximately 30 minutes and ends at Midnight, where the entire world resets with a new procedural seed.
 
-Overview.md has more info on this
+Overview.md has more info on this and my current progress, don't ask why I've orginized it like this because I have no idea either.
 
 
 ## TODO/Issues
