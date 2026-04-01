@@ -54,6 +54,9 @@ the z-sorting for the player is not work, most likely the map decors are loading
 #### NPC & Pathfinding
 both folders are place holders, empty at the moment
 
+#### Wasm* -unknown -unknown is not supported
+wasm* -unknown -unknown is not supported due to a issue with getrandom v0.2.17 js features. this is goin to be worked on but isn't likely to be fixed soon
+
 ## Credits
 
 TODO
