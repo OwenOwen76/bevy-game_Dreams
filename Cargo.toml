@@ -11,11 +11,12 @@ serde = { version = "1", features = ["derive"] }
 pathfinding = "4"
 rand = "0.10"
 bevy_procedural_tilemaps = "0.3"
-nalgebra = "0.34.2"
-num-traits = "0.2.19"
-bevy_northstar = "0.5"
-getrandom = { version = "0.2", features = ["js"] }
-
+nalgebra = "0.34"
+num-traits = "0.2"
+bevy_northstar = "0.6"
+getrandom_02 = { package = "getrandom", version = "0.2", features = ["js"] }
+getrandom = { version = "0.3", features = ["wasm_js"] }
+getrandom_04 = { package = "getrandom", version = "0.4", features = ["wasm_js"] }
 
 [profile.dev]
 opt-level = 1
