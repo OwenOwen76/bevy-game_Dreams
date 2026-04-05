@@ -21,6 +21,7 @@ pub enum DebugOn {
     On,
     #[default]
     Off,
+    TypingCommand,
 }
 
 pub fn read_debug_keys(
@@ -37,6 +38,10 @@ pub fn read_debug_keys(
             DebugOn::On => {
                 next_state.set(DebugOn::Off);
                 info!("Debug mode: OFF");
+            }
+            DebugOn::TypingCommand => {
+                next_state.set(DebugOn::TypingCommand);
+                info!("Typing command");
             }
         }
     }
