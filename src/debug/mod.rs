@@ -46,7 +46,7 @@ pub struct DebugCommand {
     pub current_text: String,
 }
 
-pub fn read_debug_commands<KeyboardInput>(
+pub fn read_debug_commands(
     mut commands: Commands,
     mut debug_cmd: ResMut<DebugCommand>,
     mut char_evr: MessageReader<KeyboardInput>,
