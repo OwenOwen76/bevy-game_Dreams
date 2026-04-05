@@ -73,7 +73,7 @@ pub fn read_debug_commands(
     mut debug_cmd: ResMut<DebugCommand>,
     mut char_evr: MessageReader<KeyboardInput>,
     keys: Res<ButtonInput<KeyCode>>,
-    mut player_query: Query<&Transform, With<crate::characters::input::Player>>,
+    mut player_query: Query<&mut Transform, With<crate::characters::input::Player>>,
     asset_server: Res<AssetServer>,
     mut texture_atlas_layouts: ResMut<Assets<TextureAtlasLayout>>,
     mut next_state: ResMut<NextState<DebugOn>>,
@@ -138,7 +138,7 @@ pub fn read_debug_commands(
                             debug_spawn_sprites(
                                 &mut commands,
                                 target,
-                                &player_query,
+                                &player_query.to_readonly(),
                                 &asset_server,
                                 &mut texture_atlas_layouts,
                             );
