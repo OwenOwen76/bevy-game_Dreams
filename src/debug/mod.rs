@@ -1,5 +1,6 @@
 use crate::debug::map::*;
 use crate::state::GameState;
+use bevy::input::keyboard::KeyboardInput;
 use bevy::prelude::*;
 
 pub mod map;
@@ -60,6 +61,10 @@ pub fn read_debug_commands(
         debug_cmd.current_text.pop();
     }
 
+    if keys.just_pressed(KeyCode::Space) {
+        debug_cmd.current_text.push(' ');
+    }
+
     // 2.Typing
     for ev in char_evr.read() {
         if !ev.state.is_pressed() {
@@ -72,7 +77,7 @@ pub fn read_debug_commands(
     }
 
     // 3.Enter
-    if keys.just_pressed(KeyCode::Enter) {
+    if keys.just_pressed(KeyCode::Enter) || keys.just_pressed(KeyCode::NumpadEnter) {
         let full_command = debug_cmd.current_text.clone();
         debug_cmd.current_text.clear();
 
