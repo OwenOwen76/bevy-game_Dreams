@@ -31,7 +31,8 @@ impl Plugin for CharactersPlugin {
                     animation::animations_playback,
                 )
                     .chain()
-                    .run_if(in_state(GameState::Playing)),
+                    .run_if(in_state(GameState::Playing))
+                    .run_if(not(in_state(DebugOn::TypingCommand))),
             );
     }
 }
