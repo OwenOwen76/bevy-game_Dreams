@@ -17,32 +17,26 @@ pub fn debug_spawn_sprites(
     let Ok(player_transform) = player_query.single() else {
         return;
     };
+
     let x = (player_transform.translation.x / TILE_SIZE).floor() as i32;
     let y = (player_transform.translation.y / TILE_SIZE).floor() as i32;
 
-    //DECOR_TILEMAP
-    if let Some(_) = DECOR_TILEMAP.sprite_index(target_name) {
+    // 1. Decor TILEMAP
+    if DECOR_TILEMAP.sprite_index(target_name).is_some() {
         let tex = asset_server.load("decorations.png");
-        spawn_sprite_decor(commands, target_name, x, y, 5.0, &Handle::default(), tex);
+        let layout = TextureAtlasLayout::from_grid(UVec2::new(16, 16), 17, 15, None, None);
+        let layout_handle = texture_atlas_layouts.add(layout);
+
+        spawn_sprite_decor(commands, target_name, x, y, 5.0, &layout_handle, tex);
         info!("Spawned Decor: {}", target_name);
     }
-    //MAIN_TILEMAP
-    else if let Some(index) = MAIN_TILEMAP.sprite_index(target_name) {
+    // 2. Main Tilemap
+    else if MAIN_TILEMAP.sprite_index(target_name).is_some() {
         let tex = asset_server.load("tilemap.png");
         let layout = TextureAtlasLayout::from_grid(UVec2::new(16, 16), 8, 15, None, None);
         let layout_handle = texture_atlas_layouts.add(layout);
 
-        commands.spawn((
-            Sprite {
-                image: tex,
-                texture_atlas: Some(TextureAtlas {
-                    layout: layout_handle,
-                    index,
-                }),
-                ..default()
-            },
-            Transform::from_xyz(x as f32 * TILE_SIZE, y as f32 * TILE_SIZE, 5.0),
-        ));
+        spawn_sprite(commands, target_name, x, y, 5.0, &layout_handle, tex, 8);
         info!("Spawned Main Tile: {}", target_name);
     } else {
         error!("Sprite '{}' not found in assets.rs", target_name);
