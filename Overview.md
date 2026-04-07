@@ -138,7 +138,9 @@ All player progress is deleted as part of the resolution.
 * World Generation:
 
   * Terrain via Perlin Noise
+  
 -# Terrain generation breaks down at about 10,000,000 blocks away from spawn, and the entire game breaks at about 100,000,000 blocks away
+
   * Structures via Wave Function Collapse (WFC)
 * Persistent Data:
 
