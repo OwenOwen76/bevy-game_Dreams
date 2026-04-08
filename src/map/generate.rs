@@ -1,4 +1,3 @@
-use crate::map::assets::MAIN_TILEMAP;
 use crate::map::chunks::*;
 use crate::map::noise::*;
 use bevy::prelude::*;
@@ -196,7 +195,7 @@ fn match_mask_to_suffix(mask: i32) -> Option<&'static str> {
     }
 }
 
-fn spawn_sprite(
+pub fn spawn_sprite(
     commands: &mut Commands,
     name: &str,
     x: i32,
@@ -206,8 +205,11 @@ fn spawn_sprite(
     tex: Handle<Image>,
     cols: u32,
 ) {
+    use crate::map::assets::MAIN_TILEMAP;
+
     if let Some(sprite_def) = MAIN_TILEMAP.sprites.iter().find(|s| s.name == name) {
         let index = (sprite_def.pixel_y / 16 * cols) + (sprite_def.pixel_x / 16);
+
         commands.spawn((
             Sprite {
                 image: tex,
@@ -320,7 +322,7 @@ pub fn spawn_bundle(
     }
 }
 
-fn spawn_sprite_decor(
+pub fn spawn_sprite_decor(
     commands: &mut Commands,
     name: &str,
     x: i32,
