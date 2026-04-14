@@ -10,7 +10,7 @@ Have a nice day~
 
 ## Running on the Web
 
-Follow the instructions in wasm.md to run this locally on the web, however it is not recommended because there is significant downgrade in quality and the camera is especially laggy. Most of the errors is mostly likely due to compiling differences than was created when the files was converted into Python.
+Follow the instructions in wasm.md to run this locally on the web, however it is not recommended because there is significant downgrade in quality and the camera is especially laggy. Most of the errors is mostly likely due to compiling differences than was created when the files was converted into Python. This game is also avalible (for now, it could be shut down anytime without warning) on [https://owenowen76.github.io/]
 
 ## TODO/Issues
 
@@ -57,9 +57,6 @@ the z-sorting for the player is not work, most likely the map decors are loading
 ### Other 
 #### NPC & Pathfinding
 both folders are place holders, empty at the moment
-
-#### Wasm* -unknown -unknown is not supported
-wasm* -unknown -unknown is not supported due to a issue with getrandom v0.2.17 js features. this is going to be worked on but isn't likely to be fixed soon
 
 ## Credits
 
